@@ -6,6 +6,6 @@ def call(String hubUserName, String imageName, String imageTag){
     )]) {
       sh 'docker login -u $USER -p $PASS'
     }
-    sh '''    docker push -t ${hubUserName}/${imageName}:${imageTag}
-    docker push -t ${hubUserName}/${imageName}:latest'''
+    sh '''    docker push ${hubUserName}/${imageName}:${imageTag}
+    docker push ${hubUserName}/${imageName}:latest'''
 }
