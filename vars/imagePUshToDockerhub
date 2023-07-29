@@ -1,8 +1,6 @@
 def (string hubUserName, string imageName, string imageTag){
   withCredentials([usernameColonPassword(credentialsId: 'dockerHub_ID', variable: 'dockerCred')]) {
-     sh '''   
-        docker push -t ${hubUserName}/${imageName}:${imageTag}
-        docker push -t ${hubUserName}/${imageName}:latest
-     '''
+    sh '''    docker push -t ${hubUserName}/${imageName}:${imageTag}
+    docker push -t ${hubUserName}/${imageName}:latest'''
   }
 }
